@@ -49,7 +49,7 @@ done
 
 # perform scan
 echo "Mencari subdomains"
-#cat $scan/root.txt | haktrails subdomains | anew subs.txt | wc -l
+cat $scan/root.txt | haktrails subdomains | anew subs.txt | wc -l
 cat $scan/root.txt | subfinder | anew subs.txt | wc -l
 cat $scan/root.txt | shuffledns -w $lists/wordlists.txt -r $lists/resolvers.txt | anew subs.txt | wc -l
 
