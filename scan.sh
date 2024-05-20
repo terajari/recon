@@ -18,7 +18,7 @@ if [ ! -d "$target" ]; then
 	echo "path ga ada"
 	exit 1
 fi
-
+echo "$domain" | anew root-lists.txt
 mkdir -p "$scan"
 cd "$scan"
 
