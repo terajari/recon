@@ -49,6 +49,11 @@ done
 
 # perform scan
 echo "Mencari subdomains"
+while ! cat $scan/root.txt | haktrails subdomains | anew subs.txt | wc -l; do
+    echo "Gagal menjalankan haktrails, mencoba lagi dalam 10 detik..."
+    sleep 10
+done
+
 cat $scan/root.txt | haktrails subdomains | anew subs.txt | wc -l
 cat $scan/root.txt | subfinder | anew subs.txt | wc -l
 cat $scan/root.txt | shuffledns -w $lists/wordlists.txt -r $lists/resolvers.txt | anew subs.txt | wc -l
